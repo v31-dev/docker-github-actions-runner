@@ -6,7 +6,7 @@
 // Hook that runs when the app is bootstrapped
 onBootstrap((e) => {
   e.next();
-  
+
   console.log("Initializing PocketBase settings...");
 
   try {
@@ -22,6 +22,7 @@ onBootstrap((e) => {
 
     // Save settings
     $app.save(settings);
+    console.log("Set PocketBase default settings...");
   } catch (error) {
     console.error("Failed to initialize settings: " + error.message);
     throw error;
