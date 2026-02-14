@@ -3,8 +3,8 @@
  * Initializes application settings on boot
  */
 
-// Hook that runs after the app is bootstrapped
-onAfterBootstrap((e) => {
+// Hook that runs when the app is bootstrapped
+onBootstrap((e) => {
   console.log("Initializing PocketBase settings...");
 
   try {
