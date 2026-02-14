@@ -9,19 +9,17 @@ onBootstrap((e) => {
 
   try {
     // Get settings
-    var settings = $app.Settings();
+    var settings = $app.settings();
 
     // Get app name from environment or use default
-    var appName = $os.Getenv("APP_NAME") || "PocketBase";
+    var appName = $os.getenv("APP_NAME");
     
     // Update application settings
-    settings.Meta.AppName = appName;
-    settings.Meta.SenderName = appName;
-    settings.HideCollectionCreate = true;
-    settings.HideCollectionEdit = true;
+    settings.meta.appName = appName;
+    settings.meta.hideControls = true;
 
     // Save settings
-    $app.Save(settings);
+    $app.save(settings);
   } catch (error) {
     console.error("Failed to initialize settings: " + error.message);
     throw error;
