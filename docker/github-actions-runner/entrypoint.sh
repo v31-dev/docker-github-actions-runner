@@ -34,6 +34,9 @@ TOKEN=$(gh api --method POST \
 
 cd /actions-runner
 
+# Remove stale config from previous run (container restart reuses filesystem)
+rm -f .runner .credentials .credentials_rsaparams
+
 # Configure runner
 ./config.sh --url https://github.com/$ORG --token $TOKEN --unattended --ephemeral \
   --labels $LABELS --name $RUNNER_NAME
